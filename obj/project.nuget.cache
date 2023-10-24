@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "lYkHR43R9w6Kv/yROv2ZGImXFHnnmN6uwAvB0uig+wcMN7a2L+WWtC0sYd1XVISaUIMx6OxublEwzzzUxLmLFw==",
+  "success": true,
+  "projectFilePath": "C:\\pessoal\\projeto-de-redes\\projeto-de-redes.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\leona\\.nuget\\packages\\csvhelper\\30.0.1\\csvhelper.30.0.1.nupkg.sha512"
+  ],
+  "logs": []
+}

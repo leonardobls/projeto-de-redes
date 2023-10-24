@@ -1,0 +1,17 @@
+C:\pessoal\projeto-de-redes\bin\Debug\net7.0\projeto-de-redes.exe
+C:\pessoal\projeto-de-redes\bin\Debug\net7.0\projeto-de-redes.deps.json
+C:\pessoal\projeto-de-redes\bin\Debug\net7.0\projeto-de-redes.runtimeconfig.json
+C:\pessoal\projeto-de-redes\bin\Debug\net7.0\projeto-de-redes.dll
+C:\pessoal\projeto-de-redes\bin\Debug\net7.0\projeto-de-redes.pdb
+C:\pessoal\projeto-de-redes\obj\Debug\net7.0\projeto-de-redes.csproj.AssemblyReference.cache
+C:\pessoal\projeto-de-redes\obj\Debug\net7.0\projeto-de-redes.GeneratedMSBuildEditorConfig.editorconfig
+C:\pessoal\projeto-de-redes\obj\Debug\net7.0\projeto-de-redes.AssemblyInfoInputs.cache
+C:\pessoal\projeto-de-redes\obj\Debug\net7.0\projeto-de-redes.AssemblyInfo.cs
+C:\pessoal\projeto-de-redes\obj\Debug\net7.0\projeto-de-redes.csproj.CoreCompileInputs.cache
+C:\pessoal\projeto-de-redes\obj\Debug\net7.0\projeto-de-redes.dll
+C:\pessoal\projeto-de-redes\obj\Debug\net7.0\refint\projeto-de-redes.dll
+C:\pessoal\projeto-de-redes\obj\Debug\net7.0\projeto-de-redes.pdb
+C:\pessoal\projeto-de-redes\obj\Debug\net7.0\projeto-de-redes.genruntimeconfig.cache
+C:\pessoal\projeto-de-redes\obj\Debug\net7.0\ref\projeto-de-redes.dll
+C:\pessoal\projeto-de-redes\bin\Debug\net7.0\CsvHelper.dll
+C:\pessoal\projeto-de-redes\obj\Debug\net7.0\projeto-de-redes.csproj.CopyComplete
