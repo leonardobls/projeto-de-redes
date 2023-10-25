@@ -26,6 +26,8 @@ namespace ProjetoDeRedes
             NeuronioDTO[] VetorIntermediario = new NeuronioDTO[Globals.NUMERO_NODOS_INTERMEDIARIOS];
             NeuronioDTO[] VetorSaidas = new NeuronioDTO[3];
 
+
+            //INICIALIZAÇÃO DOS VETORES COM VALORES VAZIOS
             for (int i = 0; i < Globals.NUMERO_NODOS_INTERMEDIARIOS; i++)
             {
                 VetorIntermediario[i] = new NeuronioDTO();
@@ -35,10 +37,11 @@ namespace ProjetoDeRedes
             {
                 VetorSaidas[i] = new NeuronioDTO();
             }
+            //-------------------------------------
 
             int totalDataCount = data.Count;
-            int trainingDataCount = (int)(totalDataCount * 0.8); // 80% of the data
-            int testingDataCount = totalDataCount - trainingDataCount; // 20% of the data
+            int trainingDataCount = (int)(totalDataCount * 0.8);
+            int testingDataCount = totalDataCount - trainingDataCount;
 
             List<FutebolDTO> dataTraining = new();
             List<FutebolDTO> dataTest = new();
@@ -58,24 +61,12 @@ namespace ProjetoDeRedes
                 dataTestRandom.Add(dataTest[randomIndex]);
             }
 
-            // for (var i = 0; i < data.Count; i++)
-            // {
-            //     if((i + 1) % 5 == 0){
-            //           dataTest.Add(data[i]);
-            //     }else{
-            //          dataTraining.Add(data[i]);
-            //     }
-            // }
-
-
             for (int epocas = 0; epocas < 600; epocas++)
             {
                 foreach (FutebolDTO item in dataTraining)
                 {
 
                     VetorEtradas = new NeuronioDTO[]{
-                        //new() { Valor = item.HTHG! },
-                        //new() { Valor = item.HTAG! },
                         new() { Valor = item.HS! },
                         new() { Valor = item.AS! },
                         new() { Valor = item.HST! },
@@ -99,7 +90,6 @@ namespace ProjetoDeRedes
 
                     AjustaPesoIntermediarioSaida(VetorSaidas, VetorIntermediario, MatrizIntermediariosSaida);
                     AjustaPesoEntradaIntermediario(VetorEtradas, VetorIntermediario, MatrizEntradaIntermediario);
-
                 }
 
                 Console.WriteLine($"\nMATRIZ ENTRADA X INTERMEDIARIO N {epocas} ---- \n");
@@ -292,19 +282,19 @@ namespace ProjetoDeRedes
                 if(n == 0){
                     recall = MatrizConfusao[0,0] / instanciasR;
                     precisao = MatrizConfusao[0,0] / instanciasP;
-                    Console.WriteLine($"H: {2*recall*precisao/recall+precisao}");
+                    Console.WriteLine($"H: {(2*recall*precisao)/(recall+precisao)}");
                 }
 
                 if(n == 1){
                     recall = MatrizConfusao[1,1] / instanciasR;
                     precisao = MatrizConfusao[1,1] / instanciasP;
-                    Console.WriteLine($"D: {2*recall*precisao/recall+precisao}");
+                    Console.WriteLine($"D: {(2*recall*precisao)/(recall+precisao)}");
                 }
 
                 if(n == 2){
                     recall = MatrizConfusao[2,2] / instanciasR;
                     precisao = MatrizConfusao[2,2] / instanciasP;
-                    Console.WriteLine($"A: {2*recall*precisao/recall+precisao}");
+                    Console.WriteLine($"A: {(2*recall*precisao)/(recall+precisao)}");
                 }
             }
         }
@@ -498,7 +488,6 @@ namespace ProjetoDeRedes
             {
                 for (int j = 0; j < Globals.NUMERO_NODOS_INTERMEDIARIOS; j++)
                 {
-                    //Novo_peso = Peso_anterior+Taxa_aprendizagem*Sa�da_neur�nio_anterior*Erro_neuronio_posterior
                     matrixOfWheights[i, j] = matrixOfWheights[i, j] + Globals.TAXA_APRENDIZAGEM * VetorIntermediarios[j].Valor * VetorSaidas[i].Error;
                 }
             }
@@ -510,7 +499,6 @@ namespace ProjetoDeRedes
             {
                 for (int j = 0; j < Globals.NUMERO_NODOS_ENTRADA; j++)
                 {
-                    //Novo_peso = Peso_anterior+Taxa_aprendizagem*Sa�da_neur�nio_anterior*Erro_neuronio_posterior
                     matrixOfWheights[i, j] = matrixOfWheights[i, j] + Globals.TAXA_APRENDIZAGEM * VetorEntradas[j].Valor * VetorIntermediarios[i].Error;
                 }
             }
@@ -526,18 +514,15 @@ namespace ProjetoDeRedes
             double maior = 0;
             int resultado;
 
-            // O vencedor eh o time da casa
             maior = VetorSaidas[0].Valor;
             resultado = 0;
 
-            // O resultado foi empate
             if (maior < VetorSaidas[1].Valor)
             {
                 maior = VetorSaidas[1].Valor;
                 resultado = 1;
             }
-
-            // O vencedor eh o time visitante
+            
             if (maior < VetorSaidas[2].Valor)
             {
                 maior = VetorSaidas[2].Valor;
